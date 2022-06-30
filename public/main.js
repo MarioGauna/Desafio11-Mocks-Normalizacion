@@ -59,6 +59,7 @@ socket.on('messages',(messages)=>{
                 <span style="color:blue; font-weight: bold;">${message.autor.email}</span>
                 <span style="color:brown">${message.timestamp}</span>
                 <span style="color:green; font-style: italic;">${message.texto}</span>
+                <img class="table-img" style="width:30px" src="${message.autor.avatar}" alt="Imagen no encontrada">
                 </div>
                 `
             )
@@ -73,6 +74,7 @@ socket.on('newMessages',(messages)=>{
             <span style="color:blue; font-weight: bold;">${message.autor.email}</span>
             <span style="color:brown">${message.timestamp}</span>
             <span style="color:green; font-style: italic;">${message.texto}</span>
+            <img class="table-img" style="width:30px" src="${message.autor.avatar}" alt="Imagen no encontrada">
             </div>
             `
         )
