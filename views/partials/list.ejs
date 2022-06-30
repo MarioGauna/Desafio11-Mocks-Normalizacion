@@ -1,0 +1,20 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Foto</th>
+        </tr>
+    </thead>
+    <tbody id="table-body">
+        <% products.forEach(products=>{ %>
+            <tr>
+                <td class="table-info"><%= products.id %></td>
+                <td class="table-info"><%= products.title %></td>
+                <td class="table-info"><%= products.price %></td>
+                <td class="table-info"><img src=<%= products.image %> alt="No image" width="20px"></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>

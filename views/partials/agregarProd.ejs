@@ -1,0 +1,19 @@
+<div class="container" style="background-color:rgb(154, 163, 173); width: 500px; height: auto; padding-bottom: 10px;">
+    <h1>Agregar producto</h1>
+    <br>
+    <form action="/productos" method="post">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label" style="font-weight: bold;">Nombre</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Nombre">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label" style="font-weight: bold;">Precio</label>
+            <input type="number" class="form-control" id="price" name="price" placeholder="Precio">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label" style="font-weight: bold;">Imagen</label>
+            <input type="url" class="form-control" id="image" name="image">
+        </div>
+        <button type="submit" class="btn btn-primary" id="guardar">Guardar</button>
+    </form>
+</div>
