@@ -1,6 +1,7 @@
 const socket=io();
 
 const divChat = document.querySelector('#chat');
+const porcentaje = document.querySelector('#porcentaje');
 const boton = document.querySelector('#enviar');
 const respuesta = document.querySelector('#warning');
 const btnGuardar= document.querySelector('#guardar');

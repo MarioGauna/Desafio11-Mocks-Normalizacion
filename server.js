@@ -23,7 +23,8 @@ app.use(express.urlencoded({extended:true}));
 app.set('views','./views');
 app.set('view engine', 'ejs');
 
-const { normalize, schema } = require('normalizr');
+//NORMALIZACION
+const { normalize, schema, denormalize } = require('normalizr');
 const { inspect } = require("util");
 
 function normal(obj){
@@ -32,9 +33,10 @@ function normal(obj){
     const conjuntoSchema = new schema.Entity('textos',{textos: [textoSchema]});
     const datosBrutos = { id: "textos", textos: [obj] };
     const final = normalize(conjuntoSchema,datosBrutos)
+    //const deFinal = denormalize(final.result,autorSchema,final.entities)
     return final
 }
-
+//NORMALIZACION
 
 app.get('/',async(req,res)=>{
     let products = await content.getAll();
@@ -61,9 +63,11 @@ io.on('connection',async(socket)=>{
     
     const mensajes = await chat.getAll();
     let data = normal(mensajes)
+    const ahorro = (((JSON.stringify(mensajes).length-JSON.stringify(data).length)/JSON.stringify(mensajes).length)*100).toFixed(2)
+    console.log(`porcentaje de Compresión: ${ahorro} %`);
     console.log("Datos Iniciales", JSON.stringify(mensajes).length);
     console.log("Datos normalizados", JSON.stringify(data).length);
-    //console.log("DATA NORMALIZADA", inspect(data, false, 12, true));
+    //console.log("Datos normalizados", inspect(data, false, 12, true));
     socket.emit('messages', mensajes)
 
     socket.on('newMessage', async(message)=>{
